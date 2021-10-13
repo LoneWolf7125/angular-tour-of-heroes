@@ -2,22 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 
+// Decorator: provides angular with metadata
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'app-heroes',     // components element selector 
+  templateUrl: './heroes.component.html',   // location of template file (html)
+  styleUrls: ['./heroes.component.css']     // location of component's private style sheets
 })
+
+// always export classes so that they can be imported elsewhere
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes = HEROES;    // a list of heroes: exposing the array for binding
 
-  selectedHero?: Hero;
+  // question mark means optional -- variable is allowed to be undefined
+  selectedHero?: Hero;  // will store the hero that gets selected
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
   constructor() { }
 
+  // lifecycle hook: Init is used to put initialization logic
   ngOnInit() {
   }
 }

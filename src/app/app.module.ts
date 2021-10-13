@@ -10,12 +10,12 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent   // angular declared our component for us when we did ng g c ...
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule       // add FormsModule to the imports array
   ],
   providers: [],
   bootstrap: [AppComponent]

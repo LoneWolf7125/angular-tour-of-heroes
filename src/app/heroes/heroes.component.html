@@ -1,5 +1,11 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
+
+  <!-- directive: tells angular how to modify the html -->
+  <!-- repeater directive: basically a for-each loop -->
+  <!-- (click) creates a click event and tells angular to execute the assigned expression -->
+  <!-- class binding: adds/removes styling based on some condition -->
+ 
   <li *ngFor="let hero of heroes"
     [class.selected]="hero === selectedHero"
     (click)="onSelect(hero)">
@@ -7,10 +13,19 @@
   </li>
 </ul>
 
+<!-- will hide or show DOM elements based on the condition -->
 <div *ngIf="selectedHero">
 
+  <!-- piping: takes some data on the left and "pipes" it as input on the right-->
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedHero.id}}</div>
+
+  <!--
+    ngModel: two-way binding
+    data flows in both directions:
+      from the textbox to the <h2> tag above and from the <h2> tag to the textbox
+  -->
+
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
