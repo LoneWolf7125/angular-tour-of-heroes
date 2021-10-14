@@ -8,6 +8,8 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
+  // public because it will be binded to in the template
+      // and Angular binding only works on public variables
   constructor(public messageService: MessageService) {}
 
   ngOnInit() {

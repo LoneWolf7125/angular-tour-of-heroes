@@ -24,13 +24,24 @@ export class HeroesComponent implements OnInit {
   // question mark means optional -- variable is allowed to be undefined
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    /**
+     * template literals:
+     *    essentially a string for exact HTML that can contain placeholders for variables 
+     *        with the ${VAR_NAME} syntax
+     */
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+
+    /**
+     * <p>${some-var}</p>
+     */
   }
 
+  // injecting the HeroService into this class
   constructor(private heroService: HeroService, private messageService: MessageService) { }
   
   // lifecycle hook: Init is used to put initialization logic
   ngOnInit() {
+    // will get the data for the heroes once the class is initialized
     this.getHeroes();
   }
 
@@ -39,7 +50,7 @@ export class HeroesComponent implements OnInit {
     this.heroes = this.heroService.getHeroes(); // synchronous signature
   }*/
   getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+    // subscribe() is what executes the Observable
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 }
