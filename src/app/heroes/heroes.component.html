@@ -13,22 +13,25 @@
   </li>
 </ul>
 
-<!-- will hide or show DOM elements based on the condition -->
-<div *ngIf="selectedHero">
+<!-- will hide or show DOM elements based on the condition
+div *ngIf="selectedHero"
 
-  <!-- piping: takes some data on the left and "pipes" it as input on the right-->
+   piping: takes some data on the left and "pipes" it as input on the right
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedHero.id}}</div>
 
-  <!--
+  
     ngModel: two-way binding
     data flows in both directions:
       from the textbox to the <h2> tag above and from the <h2> tag to the textbox
-  -->
+
 
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
   </div>
+-->
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 </div>
