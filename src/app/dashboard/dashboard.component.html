@@ -1,7 +1,9 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
+  <!-- using interpolation binding inside a routerLink -->
   <a *ngFor="let hero of heroes"
-      routerLink="/detail/{{hero.id}}">
+      routerLink="/detail/{{hero.id}}"> 
+      <!-- routerLinks don't just have to be in a nav bar or specific component -->
       {{hero.name}}
   </a>
 </div>

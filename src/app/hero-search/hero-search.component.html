@@ -4,8 +4,8 @@
   
     <ul class="search-result">
         <!-- 
-            $ means it is an Observable 
-            | async means it will subscribe automatically
+            $ is the naming convention indicating it is an Observable... not an array
+            | async means it will subscribe to an Observable automatically
         -->
       <li *ngFor="let hero of heroes$ | async" > 
         <a routerLink="/detail/{{hero.id}}">

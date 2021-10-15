@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component'; // <-- NgModel lives here
+import { DashboardComponent } from './dashboard/dashboard.component'; 
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -22,7 +22,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent   // angular declared our component for us when we did ng g c ...
+    HeroSearchComponent   // angular declared our component for us when we did 'ng g c ...'
   ],
   imports: [
     BrowserModule,

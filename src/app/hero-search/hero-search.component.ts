@@ -15,7 +15,12 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './hero-search.component.css' ]
 })
 export class HeroSearchComponent implements OnInit {
-  heroes$!: Observable<Hero[]>;
+  heroes$!: Observable<Hero[]>; // exclamation mark (!) means NOT NULL
+
+  /**
+   * Subject is both a source of Obserevable values and an Observable itself
+   *    meaning it can be subscribed to but also hold data
+   */
   private searchTerms = new Subject<string>();
 
   constructor(private heroService: HeroService) {}

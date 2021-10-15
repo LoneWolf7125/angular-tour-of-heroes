@@ -78,11 +78,12 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
+    // subscribe is what executes the Observable 
     .subscribe(heroes => this.heroes = heroes);
   }
 
   add(name: string): void {
-    name = name.trim();
+    name = name.trim();   // removes any extra whitespace before/after an input
     if (!name) { return; }
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
@@ -94,5 +95,6 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
+    // still need to subscribe to the Observable even if you're not doing anything with it 
   }
 }

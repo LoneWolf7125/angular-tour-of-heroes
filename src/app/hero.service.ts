@@ -57,8 +57,13 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');
 
     return heroes;*/
+
+    // using the HttpClient to send a GET request to the 'server'
+    // if the request fails it will "pipe" (send) the Observable to the 
+        // RxJS catchError function which then calls our handleError function
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-          tap(_ => this.log('fetched heroes')),
+          tap(_ => this.log('fetched heroes')), 
+          // tap() simply looks at the values in the Observable, does something with them, DOES NOT touch the values
           catchError(this.handleError<Hero[]>('getHeroes', []))
     )
   }
@@ -69,6 +74,7 @@ export class HeroService {
     * @param operation - name of the operation that failed
     * @param result - optional value to return as the observable result
     */
+   // T: type -- allows us to call the function with any error and have the same output
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -132,8 +138,6 @@ export class HeroService {
       catchError(this.handleError<Hero>('addHero'))
     );
   }
-
-
 
   // service-in-service: inject the message service into the hero service 
       // which is injected into the hero component 

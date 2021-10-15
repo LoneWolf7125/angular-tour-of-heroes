@@ -19,9 +19,9 @@ export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute,    // holds info about the route
     private heroService: HeroService,
-    private location: Location
+    private location: Location        // angular service that interacts with the browser
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +29,14 @@ export class HeroDetailComponent implements OnInit {
   }
   
   getHero(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    /**
+     * snapshot contains what the route info was JUST after the component was created
+     * paramMap is a map containing the names of parameters and their values
+     *    .get('paramName') returns the value of the given parameter name 
+     *    params are ALWAYS returned as strings:
+     *        must cast to correct type if it isn't a string 
+     */
+    const id = Number(this.route.snapshot.paramMap.get('id'));    // localhost:4200/api/detail/12
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }

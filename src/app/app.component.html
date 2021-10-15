@@ -1,7 +1,11 @@
-<h1>{{title}}</h1>
+<h1>{{title}}</h1>  <!-- interpolation binding -->
 <nav>
     <a routerLink='/dashboard'>Dashboard</a>
-    <a routerLink='/heroes'>Heroes</a>
+    <a routerLink='/heroes'>Heroes</a> 
+    <!-- should match a path in the routing module:
+            without the forward slash -->
 </nav>
+
+<!-- displays the component that is selected -->
 <router-outlet></router-outlet>
 <app-messages></app-messages>
