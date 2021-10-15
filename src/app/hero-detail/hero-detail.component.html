@@ -2,16 +2,16 @@
 <div *ngIf="hero">
 
   <!-- piping takes some data on the left and sends it as input to the right-->
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
 
-    <!-- ngModel: Two-way binding 
+  <!-- ngModel: Two-way binding 
           data flows in BOTH directions
               from the textbox to the <h2> and vice versa
     -->
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
-    </div>
-  
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name">
   </div>
+  <button (click)="goBack()">go back</button>
+</div>

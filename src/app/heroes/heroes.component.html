@@ -5,11 +5,11 @@
   <!-- repeater directive: basically a for-each loop -->
   <!-- (click) creates a click event and tells angular to execute the assigned expression -->
   <!-- class binding: adds/removes styling based on some condition -->
- 
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
 
@@ -35,6 +35,4 @@ div *ngIf="selectedHero"
 <!-- property binding: passing data between components
         binding the HeroesComponent selectedHero to the HeroesDetailedComponent-->
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
-</div>
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
